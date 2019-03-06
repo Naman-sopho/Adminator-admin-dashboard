@@ -53,6 +53,8 @@ module.exports = {
   devtool: manifest.IS_PRODUCTION ? false : 'cheap-eval-source-map',
   context: path.join(manifest.paths.src, manifest.entries.js),
   watch: !manifest.IS_PRODUCTION,
+  target: 'web',
+  node: {__dirname: false,},
   entry,
   output: {
     path: manifest.paths.build,

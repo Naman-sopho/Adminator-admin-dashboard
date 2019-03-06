@@ -47,12 +47,18 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "bcrypt": "^3.0.4",
+    "body-parser": "^1.18.3",
     "bootstrap": "^4.0.0",
     "bootstrap-datepicker": "^1.7.1",
     "chart.js": "^2.7.1",
+    "cookie-parser": "^1.4.4",
     "datatables": "^1.10.13",
     "easy-pie-chart": "^2.1.7",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "file-loader": "^1.1.5",
+    "fs": "0.0.1-security",
     "fullcalendar": "^3.6.2",
     "jquery": "^3.2.1",
     "jquery-sparkline": "^2.4.0",
@@ -61,8 +67,22 @@
     "lodash": "^4.17.4",
     "masonry-layout": "^4.2.0",
     "moment": "^2.19.1",
+    "morgan": "^1.9.1",
+    "net": "^1.0.2",
     "perfect-scrollbar": "^1.1.0",
+    "pg": "^7.8.1",
     "popper.js": "^1.12.6",
     "skycons": "^1.0.0"
-  }
+  },
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puikinsh/Adminator-admin-dashboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/puikinsh/Adminator-admin-dashboard/issues"
+  },
+  "homepage": "https://github.com/puikinsh/Adminator-admin-dashboard#readme"
 }

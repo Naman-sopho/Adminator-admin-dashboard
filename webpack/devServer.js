@@ -23,6 +23,12 @@ const devServer = {
   watchContentBase: true,
   hot                : !manifest.IS_PRODUCTION,
   host               : '0.0.0.0',
+  proxy: {
+    '^3002*': {
+      target: 'http://0.0.0.0:3002',
+      secure: false
+    }
+  },
   disableHostCheck   : true, // [1]
   overlay            : true,
   stats: {
