@@ -15,6 +15,9 @@ app.set('port', 3002);
 // set morgan to log info about our requests for development use.
 app.use(morgan('dev'));
 
+var cors = require('cors');
+app.use(cors());
+
 // initialize body-parser to parse incoming parameters requests to req.body
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -41,7 +44,6 @@ app.use((req, res, next) => {
     }
     next();
 });
-
 
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
@@ -133,6 +135,10 @@ app.get('/logout', (req, res) => {
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
 });
+
+app.route('/annotation')
+  .get(sessionChecker, (req, res) => {})
+  .post();
 
 
 // start the express server
