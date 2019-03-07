@@ -46,6 +46,7 @@ app.use((req, res, next) => {
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
     if (req.session.user && req.cookies.user_sid) {
+        console.log("redirecting to dashboard");
         res.redirect('/dashboard');
     } else {
         next();
@@ -55,7 +56,7 @@ var sessionChecker = (req, res, next) => {
 
 // route for Home-Page
 app.get('/', sessionChecker, (req, res) => {
-    res.redirect('/login');
+    res.redirect('/');
 });
 
 
@@ -97,6 +98,9 @@ app.route('/login')
             req.cookies.user_sid = username;
             res.redirect('/dashboard');
         } else if (username === "c@d.e" && password === "d") {
+            console.log("new cookie for user" + username);
+            req.session.user = username;
+            req.cookies.user_sid = username;
             res.redirect('/dashboard');
         } else {
             res.redirect('/login');
@@ -106,11 +110,11 @@ app.route('/login')
 
 // route for user's dashboard
 app.get('/dashboard', (req, res) => {
-    //if (req.session.user && req.cookies.user_sid) {
+    if (req.session.user && req.cookies.user_sid) {
         res.redirect('http://0.0.0.0:3001/webpack-dev-server/');
-    //} else {
-    //    res.redirect('/login');
-    //}
+    } else {
+        res.redirect('/login');
+    }
 });
 
 
