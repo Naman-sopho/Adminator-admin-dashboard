@@ -109,46 +109,25 @@
       var app = new annotator.App();
       app.include(annotator.ui.main);
       app.include(annotator.storage.http, {
-    // This is the API endpoint. If the server supports Cross Origin Resource
-    // Sharing (CORS) a full URL can be used here. Defaults to /store. The
-    // trailing slash should be omitted.
-    prefix: 'http:/localhost:3002',
-    // Custom meta data that will be attached to every annotation that is sent
-    // to the server. This will override previous values. E.g. attach the uri of the
-    // current page to all annotations to allow search.
-    annotationData: {
-      'uri': 'http://localhost:3002'
-    },
-    // An object literal containing query string parameters to query the store.
-    // If loadFromSearch is set, then we load the first batch of annotations
-    // from the ‘search’ URL as set in options.urls instead of the registry path
-    // ‘prefix/read’. Defaults to false.
-    loadFromSearch: {
-      'limit': 20,
-      'all_fields': 1,
-      'uri': 'http://localhost:3002'
-    },
-    // The server URLs for each available action (excluding prefix). These URLs
-    // can point anywhere but must respond to the appropriate HTTP method. The
-    // :id token can be used anywhere in the URL and will be replaced with the
-    // annotation id.
-    // Methods for actions are as follows:
-    // create:  POST
-    // update:  PUT
-    // destroy: DELETE
-    // search:  GET
-    urls: {
-      // These are the default URLs.
-      create:  '/annotations',
-      update:  '/annotations/:id',
-      destroy: '/annotations/:id',
-      search:  '/search'
-    },
-    // If true will display the "anyone can view this annotation" checkbox.
-    showViewPermissionsCheckbox: true,
-    // If true will display the "anyone can edit this annotation" checkbox.
-    showEditPermissionsCheckbox: true
-  });
+        prefix: 'http:/localhost:3002',
+        annotationData: {
+          'uri': 'http://localhost:3002'
+        },
+        loadFromSearch: {
+          'limit': 20,
+          'all_fields': 1,
+          'uri': 'http://localhost:3002'
+        },
+        urls: {
+          // These are the default URLs.
+          create:  '/annotations',
+          update:  '/annotations/:id',
+          destroy: '/annotations/:id',
+          search:  '/search'
+        },
+        showViewPermissionsCheckbox: true,
+        showEditPermissionsCheckbox: true
+      });
 
       app.start();
     </script>
